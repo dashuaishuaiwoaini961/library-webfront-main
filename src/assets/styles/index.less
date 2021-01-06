@@ -1,0 +1,164 @@
+@import "./transition/index.less";
+@import "./help/distance.less";
+@import "./scrollbar.less";
+@import "./ant.less";
+@import "./public.less";
+
+@selectAfter: #096dd9;
+@selectBefore: #1890ff;
+
+.distance();
+
+.index {
+  &-middle {
+    display: flex;
+    align-items: center;
+  }
+
+  &-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-space-between {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-disabled {
+    cursor: default !important;
+    opacity: 0.38;
+    user-select: none;
+  }
+
+  &-center-middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-operation {
+    span:not(:last-of-type) {
+      margin: 0 10px 0 0;
+    }
+
+    span {
+      color: @selectBefore;
+      cursor: pointer;
+    }
+
+    span:hover {
+      color: @selectAfter;
+    }
+
+    div[disabled="disabled"] {
+      color: rgba(0, 0, 0, 0.25);
+      cursor: default;
+
+      span {
+        color: inherit;
+        cursor: inherit;
+      }
+
+      &:hover {
+        color: rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+
+  &-card {
+    padding: 16px;
+    margin: 0 16px 16px;
+    background: #fff;
+    // border-radius: 4px;
+  }
+
+  &-table-search {
+    &.index-card {
+      padding: 24px 0 0;
+    }
+
+    &-close {
+      font-size: 12px;
+    }
+
+    &-button {
+      margin: 0 0 24px 0;
+      text-align: right;
+
+      button:not(:last-of-type) {
+        margin: 0 10px 0 0;
+      }
+    }
+
+    &-col {
+      padding: 0 16px;
+    }
+
+    .ant-form-item {
+      &-label {
+        line-height: 32px;
+      }
+
+      &-control {
+        height: 32px;
+        line-height: 32px;
+
+        &-wrapper {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  &-footer-block {
+    width: 100%;
+    padding: 16px 16px;
+    text-align: right;
+    background: #fff;
+    border-top: 1px solid #e8e8e8;
+
+    button {
+      margin: 0 20px 0 0;
+    }
+  }
+
+  &-hidden {
+    display: none;
+  }
+
+  &-hidden-newline {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-button {
+    color: @selectBefore;
+    cursor: pointer;
+  }
+
+  &-selected {
+    color: @selectBefore;
+  }
+
+  &-msg-error {
+    position: relative;
+    height: 0;
+    color: #fa2a2d;
+
+    &-error-div {
+      position: absolute;
+      bottom: 5px;
+
+      &-icon {
+        margin: 0 5px 0 0;
+      }
+    }
+  }
+}

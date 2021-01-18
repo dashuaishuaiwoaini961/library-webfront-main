@@ -52,9 +52,7 @@ export default defineComponent({
     const onChange = () => emit("on-change", "phone")
 
     // 按下 Enter
-    const onEnter = () => {
-      // console.log(formData)
-    }
+    const onEnter = () => {}
 
     // 输入电话失去焦点
     const onPhoneBlur = () => {

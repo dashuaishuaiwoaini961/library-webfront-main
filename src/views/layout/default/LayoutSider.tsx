@@ -53,6 +53,19 @@ export default defineComponent({
       }
     }
 
+
+    // 处理点击菜单收缩
+    function handleCollapseChange(collapsed: boolean) {
+      menuStore.commitCollapsedState(collapsed)
+    }
+
+    watch(
+      () => currentRoute.value.name,
+      () => {
+        handleMenuChange()
+      }
+    )
+
     // 渲染菜单
     function renderMenuItem(menuList?: MenuType[], index = 1) {
       if (!menuList) return
@@ -84,17 +97,6 @@ export default defineComponent({
         )
       })
     }
-    // 处理点击菜单收缩
-    function handleCollapseChange(collapsed: boolean) {
-      menuStore.commitCollapsedState(collapsed)
-    }
-
-    watch(
-      () => currentRoute.value.name,
-      () => {
-        handleMenuChange()
-      }
-    )
 
     // 渲染根菜单
     function renderMenu() {

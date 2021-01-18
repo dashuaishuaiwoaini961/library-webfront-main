@@ -1,9 +1,4 @@
-import { useRouter } from 'vue-router'
-import { unref } from 'vue'
 
-export const useFullContent = ():void => {
-  const { currentRoute } = useRouter()
+export const useFullContent = (): void => {
 
-  
-  console.log(unref(currentRoute))
 }

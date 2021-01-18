@@ -69,7 +69,7 @@ function newModeInit<T>(dataItem: T, mode: Ref<number>, name: string, storage: C
     }
   }
   // 查看缓存中是否有数据
-  checkCacheData<T>(name, storage, (data: T) => (console.log(data), assign(dataItem, data)))
+  checkCacheData<T>(name, storage, (data: T) => (assign(dataItem, data)))
 
   /**
    * 刷新页面 不会走生命周期 , 同时监听刷新和卸载时 进行缓存数据
@@ -209,7 +209,6 @@ export function dataPageMix<T>({ dataItem, rules }: DataPageMixParameter<T>): Da
   }
 
 
-  // console.log(dataItem)
   // storage.set(name as string, dataItem)
 
   return { onDataMethods, pageInfo, validateInfos }

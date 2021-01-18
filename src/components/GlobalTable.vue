@@ -7,7 +7,7 @@
     :data-source="dataSource"
     :pagination="{
       showTotal: (total) => `共 ${total} 条`,
-      total: total,
+      total: total
     }"
     :scroll="scroll"
     :row-selection="rowSelection"

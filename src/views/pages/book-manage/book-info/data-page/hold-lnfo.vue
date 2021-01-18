@@ -84,10 +84,9 @@ export default defineComponent({
     }
 
     // 保存编辑数据
-    function onSvaeEditData(index: number) {
+    function onSvaeEditData() {
       cacheData = {}
       editingIndex.value = null
-      console.log(index)
     }
 
     // 取消编辑数据

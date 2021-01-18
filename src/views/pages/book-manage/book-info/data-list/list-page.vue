@@ -41,9 +41,7 @@ export default defineComponent({
     listPageMix<BookInfo>(DATA_PAGE_NAME, { fetchDataFromServer })
 
     // 从服务器取得数据
-    function fetchDataFromServer(): void {
-      console.log(instance.searchInstance?.getCurQueryData())
-    }
+    function fetchDataFromServer(): void {}
 
     // 打开对话框
     // function openImportModal() {

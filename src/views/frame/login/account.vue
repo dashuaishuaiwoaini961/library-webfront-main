@@ -29,13 +29,9 @@
       登录
     </GlobalButton>
     <div class="login-account-link">
-      <router-link :to="{ name: 'reset-password' }">
-        忘记密码
-      </router-link>
+      <router-link :to="{ name: 'reset-password' }"> 忘记密码 </router-link>
       <a-divider type="vertical" />
-      <router-link to="/login">
-        遇到问题
-      </router-link>
+      <router-link to="/login"> 遇到问题 </router-link>
     </div>
   </div>
 </template>
@@ -59,9 +55,7 @@ export default defineComponent({
     // 点击短信登录
     const onChange = () => emit("on-change", "account")
 
-    const onEnter = () => {
-      // console.log(formData)
-    }
+    const onEnter = () => {}
 
     return {
       error,

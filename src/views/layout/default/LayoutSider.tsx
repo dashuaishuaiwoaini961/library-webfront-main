@@ -30,15 +30,7 @@ export default defineComponent({
       router.push({ name: key })
     }
 
-    // 处理菜单改变
-    function handleMenuChange() {
-      const flatItems = getFlatMenus()
-      const findMenu = flatItems.find((menu) => menu.name === unref(currentRoute).name)
-      if (findMenu) {
-        menuState.openKeys = getAllParentPathName(flatItems, findMenu.name as string)
-        menuState.selectedKeys = [findMenu.name.replace(ruleMap.dataPage, "list-page")]
-      }
-    }
+
 
     const getOpenKeys = computed(() => {
       return menuStore.getCollapsedState ? menuState.collapsedOpenKeys : menuState.openKeys
@@ -53,10 +45,19 @@ export default defineComponent({
       }
     }
 
-
     // 处理点击菜单收缩
     function handleCollapseChange(collapsed: boolean) {
       menuStore.commitCollapsedState(collapsed)
+    }
+
+    // 处理菜单改变，拿到展开的子菜单
+    function handleMenuChange() {
+      const flatItems = getFlatMenus()
+      const findMenu = flatItems.find((menu) => menu.name === unref(currentRoute).name)
+      if (findMenu) {
+        menuState.openKeys = getAllParentPathName(flatItems, findMenu.name as string)
+        menuState.selectedKeys = [findMenu.name.replace(ruleMap.dataPage, "list-page")]
+      }
     }
 
     watch(
@@ -101,7 +102,6 @@ export default defineComponent({
     // 渲染根菜单
     function renderMenu() {
       const { selectedKeys, mode, isAppMenu } = menuState
-
       return (
         <Menu
           mode={mode}
